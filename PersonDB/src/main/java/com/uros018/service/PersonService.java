@@ -3,6 +3,7 @@ package com.uros018.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.uros018.converter.PersonDtoConverter;
 import com.uros018.dto.PersonDTO;
 import com.uros018.model.Address;
 import com.uros018.model.City;
@@ -34,6 +35,8 @@ public class PersonService {
 	
 	@Autowired
 	Person person;
+	@Autowired 
+	PersonDtoConverter personDtoConverter;
 	public void personSave(PersonDTO personDto) {
 		
 //		City city=cityRepository.findByName(person.getAddress().getCity());
@@ -60,12 +63,7 @@ public class PersonService {
 //		else
 //			person.setAddress(address);
 		
-		
-		person.setFirstName(personDto.getFirstName());
-		person.setLastName(personDto.getLastName());
-		person.setDateOfBirth(personDto.getDateOfBirth());
-		person.setSocialNumber(personDto.getSocialNumber());
-		
+		person=personDtoConverter.convertPerson(personDto);
 		socialNumberRepository.save(person.getSocialNumber());
 		
 		personRepository.save(person);
