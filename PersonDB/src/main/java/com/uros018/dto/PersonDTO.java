@@ -3,6 +3,7 @@ package com.uros018.dto;
 import java.io.Serializable;
 
 import com.uros018.model.DateMap;
+import com.uros018.model.Gender;
 import com.uros018.model.SocialNumber;
 
 public class PersonDTO implements Serializable {
@@ -16,8 +17,14 @@ public class PersonDTO implements Serializable {
 	private String lastName;
 	private SocialNumber socialNumber;
 	private DateMap dateOfBirth;
+	private Gender gender;
 	
-	
+	public Gender getGender() {
+		return gender;
+	}
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
 	public int getId() {
 		return id;
 	}

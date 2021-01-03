@@ -31,7 +31,7 @@ public class DateRepository {
 		query.setParameter("date", date.getDate());
 		DateMap dm= (DateMap) query.uniqueResult();
 		session.close();
-		System.out.println(dm);
+		
 		return dm;
 	}
 }

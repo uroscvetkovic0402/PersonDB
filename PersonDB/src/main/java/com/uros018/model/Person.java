@@ -2,6 +2,7 @@ package com.uros018.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,7 +26,9 @@ public class Person implements Serializable {
 	private String lastName;
 	private SocialNumber socialNumber;
 	private DateMap dateOfBirth;
-	private Address address;
+	//private Address address;
+	private Gender gender;
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,7 +51,7 @@ public class Person implements Serializable {
 		this.lastName = lastName;
 	}
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	public SocialNumber getSocialNumber() {
 		return socialNumber;
 	}
@@ -63,13 +66,22 @@ public class Person implements Serializable {
 	public void setDateOfBirth(DateMap dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-	@ManyToOne
+/*	@ManyToOne
 	public Address getAddress() {
 		return address;
 	}
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+*/	
+	@ManyToOne
+	public Gender getGender() {
+		return gender;
+	}
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+	
 	
 	
 }

@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"com.uros018.controller","com.uros018.model","com.uros018.service"})
+@ComponentScan(basePackages = {"com.uros018.controller","com.uros018.model","com.uros018.service","com.uros018.converter"})
 public class WebConfig extends WebMvcConfigurationSupport  {
 
 	

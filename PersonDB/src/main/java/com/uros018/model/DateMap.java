@@ -1,12 +1,20 @@
 package com.uros018.model;
 
+
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import java.util.Date;
+
+
+
+
+
 @Entity
 public class DateMap {
 
@@ -30,7 +38,7 @@ public class DateMap {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	@OneToOne(mappedBy = "dateOfBirth")
+	@OneToOne(mappedBy = "dateOfBirth",fetch = FetchType.EAGER)
 	public Person getPerson() {
 		return person;
 	}

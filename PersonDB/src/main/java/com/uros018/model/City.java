@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -37,7 +38,7 @@ public class City implements Serializable {
 		this.city = city;
 	}
 	
-	@OneToMany(mappedBy = "city")
+	@OneToMany(mappedBy = "city",fetch = FetchType.EAGER)
 	public List<Address> getAddress() {
 		return address;
 	}

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,7 +26,7 @@ public class Address implements Serializable {
 	private String apartmentNumber;
 
 	
-	private List<Person> person;
+	//private List<Person> person;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,14 +45,14 @@ public class Address implements Serializable {
 		this.state = state;
 	}
 	
-	@OneToMany(mappedBy = "address")
+	/*@OneToMany(mappedBy = "address", fetch = FetchType.EAGER)
 	public List<Person> getPerson() {
 		return person;
 	}
 	public void setPerson(List<Person> person) {
 		this.person = person;
 	}
-	
+	*/
 	@ManyToOne
 	public City getCity() {
 		return city;

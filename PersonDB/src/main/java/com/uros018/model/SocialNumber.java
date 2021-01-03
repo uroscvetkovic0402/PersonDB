@@ -2,12 +2,15 @@ package com.uros018.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import org.springframework.stereotype.Component;
+@Component
 @Entity
 public class SocialNumber implements Serializable {
 
